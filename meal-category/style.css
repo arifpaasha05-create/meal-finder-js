@@ -1,17 +1,20 @@
 
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: #222;
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* NAVBAR */
+/* ==========================================================
+   NAVBAR
+   ========================================================== */
 .navbar {
     width: 100%;
     height: 54px;
@@ -19,193 +22,278 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 28px;
-    border: 1px solid #111;
+    padding: 0 82px;
 }
 
-/* LEFT SIDE */
 .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* HOUSE */
 .house-icon {
-    position: relative;
-
-    width: 21px;
-    height: 24px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-
-    font-size: 20px;
+  position: relative;
+  width: 22px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
 }
 
-/* FORK + KNIFE */
 .cutlery {
-    position: absolute;
-
-    left: 6px;
-    top: 7px;
-
-    width: 9px;
-    height: 11px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #f26322;
-
-    font-size: 8px;
-
-    z-index: 2;
+  position: absolute;
+  left: 6px;
+  top: 7px;
+  width: 9px;
+  height: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f26322;
+  font-size: 8px;
+  z-index: 2;
 }
 
-/* MEAL FINDER TEXT */
 .brand-name {
-    color: white;
-
-    font-size: 28px;
-    font-weight: 700;
-
-    letter-spacing: 0.2px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-/* HAMBURGER */
 .menu-icon {
-    color: white;
-
-    font-size: 27px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
+  color: #ffffff;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+ 
 }
 
-
-
-
+/* ==========================================================
+   HERO SECTION (Wood texture + checkered towel)
+   ========================================================== */
 .hero {
-    height: 410px;
-
-    position: relative;
-
-    background-image:
-        url("./header_image.1dc0f346d407fc577d16.jpg");
-
-    background-size: 100% 160%;
-    background-position:center;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 400px;
+  position: relative;
+  background-image: url("./header_image.1dc0f346d407fc577d16.jpg");
+ background-size: 100% 160%;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.50);
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
 }
 
 .hero-content {
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-
-    color: white;
-
-    width: 100%;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  padding: 0 16px;
 }
 
-
-
 .search-box {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 26px;
 }
 
 .search-box input {
-    width: 275px;
-    height: 50px;
-
-    border: none;
-    outline: none;
-
-    border-radius: 35px;
-
-    padding: 0 32px;
-
-    font-size: 16px;
-
-    color: #555;
+  width: 280px;
+  height: 48px;
+  border: none;
+  outline: none;
+  border-radius: 35px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #333333;
 }
 
 .search-box input::placeholder {
-    color: #999;
+  color: #888888;
 }
 
-
+/* SEARCH BUTTON WITH HOVER EFFECT */
 .search-btn {
-    background-color: #e85d1b;
-    color: white;
-    border: 2px solid white;
-    border-radius: 50%;
-    transition: 0.3s;
-    margin-left: 10px;
-    font-size: 100%;
-    width: 50px;
-    height: 50px;
+  background-color: #e85d1b;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  margin-left: 10px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .search-btn i {
-    color: white;
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
-/* HOVER */
+/* Search button hover state */
 .search-btn:hover {
-    background-color: white ;
-    border-color: #e85d1b ;
+  background-color: #ffffff;
+  border-color: #e85d1b;
 }
 
 .search-btn:hover i {
-    color: #e85d1b ;
+  color: #e85d1b;
 }
 
-
-
-
 .hero h1 {
-    font-size: 32px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 24px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero p {
-    font-size: 17px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
 
-    letter-spacing: 0.5px;
+/* ==========================================================
+   MAIN CONTAINER
+   ========================================================== */
+.main-wrapper {
+  max-width: 980px;
+  margin: 35px auto 60px;
+  padding: 0 16px;
+  display: block;
+}
+
+/* ==========================================================
+   1. VEGETARIAN PARAGRAPH */
+.info-card {
+  background-color: #f8f9fa;     /* Light Gray Background */
+  border: 1.5px solid #df5734;   /* Warm Orange Border */
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.info-card-title {
+  color: #df5734;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.info-card-text {
+  color: #4a4a4a;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.1px;
+  text-align: left;
+  width: 100%;
+}
+
+/* ==========================
+   2. SECTION TITLE ("MEALS")
+  ============================= */
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #000000;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 36px;
+  height: 3px;
+  background-color: #df5734;
+}
+
+/*cards*/
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  width: 100%;
 }
 
 
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05); /* Soft Shadow */
+}
 
 
+.card-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.card-content {
+  padding: 8px 10px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+
+.dish-name {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.35;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.dish-origin {
+  font-size: 11px;
+  font-weight: 500;
+  color: #333333;
+}

@@ -1,0 +1,648 @@
+/* ========================================================
+   CSS Variables & Global Reset
+   ======================================================== */
+  *  {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================
+   NAVBAR
+   ========================================================== */
+.navbar {
+  width: 100%;
+  height: 54px;
+  background: #f26322;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.house-icon {
+  position: relative;
+  width: 22px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.cutlery {
+  position: absolute;
+  left: 6px;
+  top: 7px;
+  width: 9px;
+  height: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f26322;
+  font-size: 8px;
+  z-index: 2;
+}
+
+.brand-name {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.menu-icon {
+  color: #ffffff;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ==========================================================
+   HERO SECTION (Wood texture + checkered towel)
+   ========================================================== */
+.hero {
+  height: 400px;
+  position: relative;
+  background-image: url("./header_image.1dc0f346d407fc577d16.jpg");
+ background-size: 100% 160%;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.search-box input {
+  width: 280px;
+  height: 48px;
+  border: none;
+  outline: none;
+  border-radius: 35px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #333333;
+}
+
+.search-box input::placeholder {
+  color: #888888;
+}
+
+/* SEARCH BUTTON WITH HOVER EFFECT */
+.search-btn {
+  background-color: #e85d1b;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  margin-left: 10px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.search-btn i {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+/* Search button hover state */
+.search-btn:hover {
+  background-color: #ffffff;
+  border-color: #e85d1b;
+}
+
+.search-btn:hover i {
+  color: #e85d1b;
+}
+
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero p {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+:root {
+  --primary-orange: #d85d27;
+  --primary-orange-light: #f5ab8c;
+  --badge-cyan: #00a8cc;
+  --text-main: #2b2b2b;
+  --text-muted: #5a5a5a;
+  --text-light: #7c7c7c;
+  --bg-page: #f2f3f5;
+  --bg-card: #ffffff;
+  --border-light: #e5e5e5;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+  padding: 24px 16px 60px;
+}
+
+.page-container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* ========================================================
+   1. Top Navigation / Breadcrumb Bar
+   ======================================================== */
+.top-nav-bar {
+  background-color: var(--primary-orange);
+  color: #ffffff;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+.top-nav-bar .home-icon {
+  font-size: 14px;
+}
+
+.top-nav-bar .separator {
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+/* ========================================================
+   2. Page Title & Orange Accent Line
+   ======================================================== */
+.page-heading-wrapper {
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 16.5px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: #1a1a1a;
+  text-transform: uppercase;
+}
+
+.heading-accent-line {
+  width: 52px;
+  height: 3.5px;
+  background-color: var(--primary-orange);
+  margin-top: 5px;
+  border-radius: 1px;
+}
+
+/* ========================================================
+   3. Main Meal Details Card
+   ======================================================== */
+.meal-card {
+  background: var(--bg-card);
+  border-radius: 3px;
+  padding: 30px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* 2-Column Header Grid (Image + Details) */
+.meal-header-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 28px;
+  margin-bottom: 26px;
+}
+
+.meal-image-container {
+  width: 100%;
+}
+
+.meal-image {
+  width: 100%;
+  height: 100%;
+  max-height: 290px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+.meal-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--primary-orange);
+  margin-bottom: 6px;
+}
+
+.meal-title-divider {
+  height: 1px;
+  background-color: var(--primary-orange-light);
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+/* Metadata Rows */
+.info-row {
+  font-size: 12.5px;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-label {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.category-value {
+  color: var(--text-light);
+  letter-spacing: 0.8px;
+  font-weight: 500;
+}
+
+.source-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 12px;
+  word-break: break-all;
+}
+
+.source-link:hover {
+  text-decoration: underline;
+}
+
+/* Tags */
+.tags-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 16px;
+}
+
+.tag-pill {
+  padding: 2px 7px;
+  border: 1px solid var(--primary-orange-light);
+  border-radius: 3px;
+  font-size: 11px;
+  color: var(--primary-orange);
+  background: #ffffff;
+  font-weight: 500;
+}
+
+/* ========================================================
+   4. Ingredients Box
+   ======================================================== */
+.ingredients-card {
+  background-color: var(--primary-orange);
+  border-radius: 3px;
+  padding: 13px 16px;
+  color: #ffffff;
+}
+
+.ingredients-heading {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 12px;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-num {
+  width: 17px;
+  height: 17px;
+  background-color: var(--badge-cyan);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+/* ========================================================
+   5. Measure Section: Tilted Orange Spoons (↗)
+   ======================================================== */
+.content-section {
+  margin-bottom: 22px;
+}
+
+.section-heading {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.measure-card {
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  padding: 14px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 30px;
+}
+
+.measure-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.measure-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #2b2b2b;
+}
+
+/* Fixed Tilted Orange Spoon Icon (↗) */
+.spoon-icon {
+  color: var(--primary-orange);
+  font-size: 12px;
+  transform: rotate(45deg);
+  transform-origin: center center;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ========================================================
+   6. Instructions Section (Line-by-Line Checklist)
+   ======================================================== */
+.instructions-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.instruction-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #383838;
+  line-height: 1.45;
+}
+
+.instruction-check {
+  color: var(--primary-orange);
+  font-size: 13.5px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ========================================================
+   7. Responsive Layout
+   ======================================================== */
+@media (max-width: 768px) {
+  .meal-header-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .ingredients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .measure-card {
+    grid-template-columns: 1fr;
+  }
+
+  .meal-card {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ingredients-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.categories-section {
+    background: #f6f6f6;
+
+    padding: 90px 20px;
+}
+
+.container {
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+
+
+.categories {
+    padding: 25px 7%;
+    background: #f5f5f5;
+}
+
+.categories h2 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.categories h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #e85d1b;
+    margin-top: 8px;
+}
+
+
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+
+.category-card {
+    position: relative;
+    height: 145px;
+    
+    background: white;
+    overflow: visible;
+
+   
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+
+
+.category-image {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+}
+
+
+
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+
+    transform-origin: center center;
+}
+
+
+.category-image img:hover {
+    transform: scale(1.12);
+
+    filter: brightness(1.05);
+
+    cursor: pointer;
+}
+
+
+
+.category-label {
+    position: absolute;
+
+    top: 5px;
+    right: 5px;
+
+    z-index: 5;
+
+    background: #e85d1b;
+    color: white;
+
+    padding: 6px 10px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+
+
+
+@media (max-width: 1100px) {
+
+    .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meal Details - Baingan Bharta</title>
+
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="brand">
+      <span class="house-icon">
+        <i class="fa-solid fa-house"></i>
+        <span class="cutlery">
+          <i class="fa-solid fa-utensils"></i>
+        </span>
+      </span>
+      <span class="brand-name">MEAL FINDER</span>
+    </div>
+
+    <div class="menu-icon">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="search-box">
+        <input type="text" placeholder="Search recipes here ..." />
+        <button class="search-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <h1>What are your favorite cuisines?</h1>
+      <p>PERSONALIZE YOUR EXPERIENCE</p>
+    </div>
+  </section>
+
+
+  <div class="page-container">
+
+    <!-- 1. Top Orange Header Bar -->
+    <header class="top-nav-bar">
+      <i class="fa-solid fa-house home-icon"></i>
+      <span class="separator">»</span>
+      <span class="recipe-name-nav">BAINGAN BHARTA</span>
+    </header>
+
+    <!-- 2. Page Title with Solid Orange Accent Line -->
+    <div class="page-heading-wrapper">
+      <h1 class="page-title">MEAL DETAILS</h1>
+      <div class="heading-accent-line"></div>
+    </div>
+
+    <!-- 3. Main Recipe Card -->
+    <main class="meal-card">
+
+      <!-- Top Header Grid (Image + Metadata + Ingredients) -->
+      <section class="meal-header-grid">
+        
+        <!-- Left Column: Dish Image in Metal Bowl -->
+        <div class="meal-image-container">
+          <img 
+            src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" 
+            alt="Baingan Bharta in Stainless Steel Bowl" 
+            class="meal-image"
+          />
+        </div>
+
+        <!-- Right Column: Meta Info & Ingredients -->
+        <div class="meal-info-container">
+          <h2 class="meal-title">Baingan Bharta</h2>
+          <div class="meal-title-divider"></div>
+
+          <div class="info-row">
+            <span class="info-label">CATEGORY:</span>
+            <span class="info-value category-value">VEGETARIAN</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">Source:</span>
+            <a href="http://www.vegrecipesofindia.com/baingan-bharta-recipe-punjabi-baingan-bharta/" target="_blank" class="info-value source-link">
+              http://www.vegrecipesofindia.com/baingan...
+            </a>
+          </div>
+
+          <div class="tags-row">
+            <span class="info-label">Tags:</span>
+            <span class="tag-pill">Spicy</span>
+            <span class="tag-pill">Bun</span>
+            <span class="tag-pill">Calorific</span>
+          </div>
+
+          <!-- Orange Ingredients Box -->
+          <div class="ingredients-card">
+            <h3 class="ingredients-heading">Ingredients</h3>
+            <div class="ingredients-grid">
+              <div class="ingredient-item"><span class="badge-num">1</span> Aubergine</div>
+              <div class="ingredient-item"><span class="badge-num">2</span> Onion</div>
+              <div class="ingredient-item"><span class="badge-num">3</span> Tomatoes</div>
+              <div class="ingredient-item"><span class="badge-num">4</span> Garlic</div>
+              <div class="ingredient-item"><span class="badge-num">5</span> Green Chilli</div>
+              <div class="ingredient-item"><span class="badge-num">6</span> Red Chilli Powder</div>
+              <div class="ingredient-item"><span class="badge-num">7</span> Oil</div>
+              <div class="ingredient-item"><span class="badge-num">8</span> Coriander Leaves</div>
+              <div class="ingredient-item"><span class="badge-num">9</span> Salt</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. Measure Section (Corrected with Tilted Orange Spoons) -->
+      <section class="content-section">
+        <h4 class="section-heading">Measure:</h4>
+        <div class="measure-card">
+          <!-- Left Column -->
+          <div class="measure-col">
+            <div class="measure-item">
+              <i class="fa-solid fa-spoon spoon-icon"></i>
+              <span>1 large</span>
+            </div>
+            <div class="measure-item">
+              <i class="fa-solid fa-spoon spoon-icon"></i>
+              <span>1 cup</span>
+            </div>
+            <div class="measure-item">
+              <i class="fa-solid fa-spoon spoon-icon"></i>
+              <span>&frac14; teaspoon</span>
+            </div>
+            <div class="measure-item">
+              <i class="fa-solid fa-spoon spoon-icon"></i>
+              <span>1 tablespoon chopped</span>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="measure-col">
+            <div class="measure-item">
+              <i class="fa-solid fa-spoon spoon-icon"></i>
+              <span>&frac12; cup</span>
+            </div>
+            <div class="measure-item">
+              <i class="fa-solid fa-spoon spoon-icon"></i>
+              <span>6 cloves</span>
+            </div>
+            <div class="measure-item">
+              <i class="fa-solid fa-spoon spoon-icon"></i>
+              <span>1.5 tablespoon</span>
+            </div>
+            <div class="measure-item">
+              <i class="fa-solid fa-spoon spoon-icon"></i>
+              <span>as required</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Instructions Section: Exact 28 Lines -->
+      <section class="content-section">
+        <h4 class="section-heading">Instructions:</h4>
+        <ul class="instructions-list">
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>Rinse the baingan (eggplant or aubergine) in water. Pat dry with a kitchen napkin. Apply some oil all over and</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>keep it for roasting on an open flame. You can also grill the baingan or roast in the oven. But then you won't get</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>the smoky flavor of the baingan. Keep the eggplant turning after a 2 to 3 minutes on the flame, so that its evenly</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>cooked. You could also embed some garlic cloves in the baingan and then roast it.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>2. Roast the aubergine till its completely cooked and tender. With a knife check the doneness. The knife should slid</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>easily in aubergines without any resistance. Remove the baingan and immerse in a bowl of water till it cools</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>down.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>3. You can also do the dhungar technique of infusing charcoal smoky flavor in the baingan. This is an optional step.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>Use natural charcoal for this method. Heat a small piece of charcoal on flame till it becomes smoking hot and red.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>4. Make small cuts on the baingan with a knife. Place the red hot charcoal in the same plate where the roasted</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>aubergine is kept. Add a few drops of oil on the charcoal. The charcoal would begin to smoke.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>5. As soon as smoke begins to release from the charcoal, cover the entire plate tightly with a large bowl. Allow the</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>charcoal smoke to get infused for 1 to 2 minutes. The more you do, the more smoky the baingan bharta will</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>become. I just keep for a minute. Alternatively, you can also do this dhungar method once the baingan bharta is</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>cooked, just like the way we do for Dal Tadka.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>6. Peel the skin from the roasted and smoked eggplant.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>7. Chop the cooked eggplant finely or you can even mash it.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>8. In a kadai or pan, heat oil. Then add finely chopped onions and garlic.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>9. Saute the onions till translucent. Don't brown them.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>10. Add chopped green chillies and saute for a minute.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>11. Add the chopped tomatoes and mix it well.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>12. Bhuno (saute) the tomatoes till the oil starts separating from the mixture.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>13. Now add the red chili powder. Stir and mix well.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>14. Add the chopped cooked baingan.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>15. Stir and mix the chopped baingan very well with the oniontomato masala mixture.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>16. Season with salt. Stir and saute for some more 4 to 5 minutes more.</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>17. Finally stir in the coriander leaves with the baingan bharta or garnish it with them. Serve Baingan Bharta with</span>
+          </li>
+          <li class="instruction-row">
+            <i class="fa-regular fa-square-check instruction-check"></i>
+            <span>phulkas, rotis or chapatis. It goes well even with bread, toasted or grilled bread and plain rice or jeera rice.</span>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+  </div>
+   <section class="categories">
+
+        <h2>CATEGORIES</h2>
+
+        <div class="category-grid">
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">BEEF</span>
+                    <div class="category-image">
+                        <img src="./beef.png" alt="Beef">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">CHICKEN</span>
+                    <div class="category-image">
+                        <img src="chicken.png" alt="Chicken">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">DESSERT</span>
+                    <div class="category-image">
+                        <img src="./dessert.png" alt="Dessert">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">LAMB</span>
+                    <div class="category-image">
+                        <img src="./lamb.png" alt="Lamb">
+                    </div>
+                </div>
+            </a>
+            <a href="./">
+                <div class="category-card">
+                    <span class="category-label">MISCELLANEOUS</span>
+                    <div class="category-image">
+                        <img src="./miscellaneous.png" alt="Miscellaneous">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">PASTA</span>
+                    <div class="category-image">
+                        <img src="./pasta.png" alt="Pasta">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">PORK</span>
+                    <div class="category-image">
+                        <img src="./pork.png" alt="Pork">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">SEAFOOD</span>
+                    <div class="category-image">
+                        <img src="./seafood.png" alt="Seafood">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">SIDE</span>
+                    <div class="category-image">
+                        <img src="./side.png" alt="Side">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">STARTER</span>
+                    <div class="category-image">
+                        <img src="./starter.png" alt="Starter">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">VEGAN</span>
+                    <div class="category-image">
+                        <img src="./vegan.png" alt="Vegan">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">VEGETARIAN</span>
+                    <div class="category-image">
+                        <img src="./vegetarian.png" alt="Vegetarian">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">BREAKFAST</span>
+                    <div class="category-image">
+                        <img src="./breakfast.png" alt="Breakfast">
+                    </div>
+                </div>
+            </a>
+            <a href="./meal-category/index.html">
+                <div class="category-card">
+                    <span class="category-label">GOAT</span>
+                    <div class="category-image">
+                        <img src="./goat (1).png" alt="Goat">
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </section>
+
+
+</body>
+</html>

@@ -1,7 +1,8 @@
 
 
 * {
-    margin: 0;
+    
+     margin:0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -9,203 +10,157 @@
 body {
     background: #222;
     font-family: Arial, Helvetica, sans-serif;
+    
+   
 }
 
 /* NAVBAR */
 .navbar {
-    width: 100%;
-    height: 54px;
-    background: #f26322;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 28px;
-    border: 1px solid #111;
+  width: 100%;
+  height: 52px;
+  background-color: #d85d27;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 82px;
+  
 }
 
-/* LEFT SIDE */
 .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* HOUSE */
 .house-icon {
-    position: relative;
-
-    width: 21px;
-    height: 24px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-
-    font-size: 20px;
+  position: relative;
+  width: 22px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
 }
 
-/* FORK + KNIFE */
 .cutlery {
-    position: absolute;
-
-    left: 6px;
-    top: 7px;
-
-    width: 9px;
-    height: 11px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #f26322;
-
-    font-size: 8px;
-
-    z-index: 2;
+  position: absolute;
+  left: 6px;
+  top: 7px;
+  width: 9px;
+  height: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d85d27;
+  font-size: 7px;
+  z-index: 2;
 }
 
-/* MEAL FINDER TEXT */
 .brand-name {
-    color: white;
-
-    font-size: 28px;
-    font-weight: 700;
-
-    letter-spacing: 0.2px;
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
-/* HAMBURGER */
 .menu-icon {
-    color: white;
-
-    font-size: 27px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-
-
-
+/* ==========================================================
+   2. HERO SECTION
+   ========================================================== */
 .hero {
-    height: 410px;
-
-    position: relative;
-
-    background-image:
-        url("./header_image.1dc0f346d407fc577d16.jpg");
-
-    background-size: 100% 160%;
-    background-position:center;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 360px;
+  position: relative;
+  background-image: url("./header_image.1dc0f346d407fc577d16.jpg");
+  background-size: 100% 160%;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.50);
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
 }
 
 .hero-content {
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-
-    color: white;
-
-    width: 100%;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  padding: 0 16px;
 }
 
-
-
 .search-box {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 22px;
 }
 
 .search-box input {
-    width: 275px;
-    height: 50px;
-
-    border: none;
-    outline: none;
-
-    border-radius: 35px;
-
-    padding: 0 32px;
-
-    font-size: 16px;
-
-    color: #555;
+  width: 290px;
+  height: 44px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #333333;
 }
 
 .search-box input::placeholder {
-    color: #999;
+  color: #888888;
 }
-
 
 .search-btn {
-    background-color: #e85d1b;
-    color: white;
-    border: 2px solid white;
-    border-radius: 50%;
-    transition: 0.3s;
-    margin-left: 10px;
-    font-size: 100%;
-    width: 50px;
-    height: 50px;
+  background-color: #d85d27;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  margin-left: 8px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
 }
 
-.search-btn i {
-    color: white;
-}
-
-/* HOVER */
 .search-btn:hover {
-    background-color: white ;
-    border-color: #e85d1b ;
+  background-color: #ffffff;
+  border-color: #d85d27;
+  color: #d85d27;
 }
-
-.search-btn:hover i {
-    color: #e85d1b ;
-}
-
-
-
 
 .hero h1 {
-    font-size: 32px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero p {
-    font-size: 17px;
-
-    letter-spacing: 0.5px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.95;
 }
-
 
 
 
