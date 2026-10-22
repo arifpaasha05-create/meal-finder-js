@@ -4,173 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Meal Finder</title>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Font 'Poppins' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#d85d27',
+                            hover: '#b54716',
+                            dark: '#df5734',
+                            light: '#fff4ed',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body>
+<body class="bg-[#f5f5f5] text-[#2b2b2b] font-sans antialiased min-h-screen">
+
     <!-- ================= NAVBAR ================= -->
-  <nav class="navbar">
-    <div class="brand">
-      <span class="house-icon">
-        <i class="fa-solid fa-house"></i>
-        <span class="cutlery">
-          <i class="fa-solid fa-utensils"></i>
-        </span>
-      </span>
-      <h1 class="brand-name">MealFinder.</h1>
-    </div>
+    <nav class="w-full h-[52px] bg-brand flex items-center justify-between px-6 md:px-20 relative z-40">
+        <a href="index.html" class="inline-block text-white">
+            <div class="flex items-center gap-2.5">
+                <span class="relative w-[22px] h-[24px] flex items-center justify-center text-white text-lg">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="absolute left-[6px] top-[7px] text-[7px] text-brand z-10 flex items-center justify-center">
+                        <i class="fa-solid fa-utensils"></i>
+                    </span>
+                </span>
+                <h1 class="text-white text-lg font-bold tracking-wide">MealFinder.</h1>
+            </div>
+        </a>
 
-    <div class="menu-icon">
-      <i class="fa-solid fa-bars"></i>
-    </div>
-</nav>
-
-  <!-- ================= HERO SECTION ================= -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="search-box">
-        <input type="text" placeholder="Search recipes here ..." />
-        <button class="search-btn" aria-label="Search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
-
-      <h1>What are your favorite cuisines?</h1>
-      <p>PERSONALIZE YOUR EXPERIENCE</p>
-    </div>
-  </section>
-
-
-
-    <section class="categories">
-
-        <h2>CATEGORIES</h2>
-
-        <div class="category-grid">
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">BEEF</span>
-                    <div class="category-image">
-                        <img src="./beef.png" alt="Beef">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">CHICKEN</span>
-                    <div class="category-image">
-                        <img src="./chicken.png" alt="Chicken">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">DESSERT</span>
-                    <div class="category-image">
-                        <img src="./dessert.png" alt="Dessert">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">LAMB</span>
-                    <div class="category-image">
-                        <img src="./lamb.png" alt="Lamb">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">MISCELLANEOUS</span>
-                    <div class="category-image">
-                        <img src="./miscellaneous.png" alt="Miscellaneous">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">PASTA</span>
-                    <div class="category-image">
-                        <img src="./pasta.png" alt="Pasta">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">PORK</span>
-                    <div class="category-image">
-                        <img src="./pork.png" alt="Pork">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">SEAFOOD</span>
-                    <div class="category-image">
-                        <img src="./seafood.png" alt="Seafood">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">SIDE</span>
-                    <div class="category-image">
-                        <img src="./side.png" alt="Side">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">STARTER</span>
-                    <div class="category-image">
-                        <img src="./starter.png" alt="Starter">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">VEGAN</span>
-                    <div class="category-image">
-                        <img src="./vegan.png" alt="Vegan">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">VEGETARIAN</span>
-                    <div class="category-image">
-                        <img src="./vegetarian.png" alt="Vegetarian">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">BREAKFAST</span>
-                    <div class="category-image">
-                        <img src="./breakfast.png" alt="Breakfast">
-                    </div>
-                </div>
-            </a>
-            <a href="./meal-category/index.html">
-                <div class="category-card">
-                    <span class="category-label">GOAT</span>
-                    <div class="category-image">
-                        <img src="./goat (1).png" alt="Goat">
-                    </div>
-                </div>
-            </a>
-
+        <div class="text-white text-xl cursor-pointer hover:opacity-80 transition" id="menuBtn" aria-label="Open navigation menu">
+            <i class="fa-solid fa-bars"></i>
         </div>
+    </nav>
 
+    <!-- ================= SLIDE-OUT SIDEBAR ================= -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/45 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <aside id="sidebar" class="fixed top-0 right-0 w-[270px] max-w-[80vw] h-full bg-white z-50 shadow-2xl translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto py-5">
+        <button id="closeSidebarBtn" class="absolute top-4 right-5 text-2xl text-brand hover:text-brand-hover hover:rotate-90 transition duration-200" aria-label="Close menu">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <div class="px-6 pt-8 pb-3 border-b border-gray-100">
+            <h3 class="text-sm font-bold text-gray-700 uppercase tracking-wider">Categories</h3>
+        </div>
+        <ul id="sidebarCategoryList" class="divide-y divide-gray-100 text-sm">
+            <!-- Dynamically populated categories -->
+        </ul>
+    </aside>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative h-[360px] bg-cover bg-center flex justify-center items-center" style="background-image: url('./header_image.1dc0f346d407fc577d16.jpg');">
+        <div class="absolute inset-0 bg-black/55"></div>
+
+        <div class="relative z-10 text-center text-white w-full px-4">
+            <form id="searchForm" class="flex justify-center items-center mb-6">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search recipes here ..." 
+                    autocomplete="off" 
+                    class="w-64 sm:w-72 h-11 rounded-full px-5 text-sm text-gray-800 placeholder-gray-400 outline-none shadow-md focus:ring-2 focus:ring-brand"
+                />
+                <button type="submit" id="searchBtn" aria-label="Search" class="bg-brand text-white border-2 border-transparent rounded-full ml-2 w-11 h-11 flex items-center justify-center text-sm cursor-pointer hover:bg-white hover:text-brand hover:border-brand transition duration-300">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-wide mb-2 drop-shadow-md">What are your favorite cuisines?</h1>
+            <p class="text-xs sm:text-sm font-semibold tracking-widest uppercase opacity-95">PERSONALIZE YOUR EXPERIENCE</p>
+        </div>
     </section>
 
+    <!-- ================= DYNAMIC MEALS SEARCH RESULTS SECTION ================= -->
+    <section id="mealsSection" class="hidden bg-white py-10 border-b border-gray-200">
+        <div class="max-w-[1100px] mx-auto px-4">
+            <div class="mb-6">
+                <h3 class="text-lg font-bold tracking-wider text-black uppercase relative pb-1 inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-9 after:h-[3px] after:bg-brand">
+                    MEALS
+                </h3>
+            </div>
+            <!-- Status Message -->
+            <div id="searchStatusMsg" class="hidden text-center p-6 text-sm text-gray-600 bg-white border border-dashed border-brand rounded my-4"></div>
+            <!-- Cards Grid -->
+            <div id="mealsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+        </div>
+    </section>
+
+    <!-- ================= CATEGORIES SECTION ================= -->
+    <section class="py-10 pb-16 bg-[#f5f5f5]">
+        <div class="max-w-[1100px] mx-auto px-4">
+            <div class="mb-7">
+                <h2 class="text-lg font-bold tracking-wider text-black uppercase relative pb-1 inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-9 after:h-[3px] after:bg-brand">
+                    CATEGORIES
+                </h2>
+            </div>
+
+            <!-- Status Message (hidden so it never blocks the screen) -->
+            <div id="categoriesStatusMsg" class="hidden text-center p-6 text-sm text-gray-600 bg-white border border-dashed border-brand rounded my-4" style="display: none;"></div>
+
+            <!-- Dynamic Category Cards Grid -->
+            <div id="categoryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+        </div>
+    </section>
+
+    <!-- Separate JavaScript File -->
+    <script src="./script.js"></script>
 </body>
 
 </html>

@@ -4,493 +4,128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meal Finder - Vegetarian Meals</title>
+  <title>Meal Finder - Category Meals</title>
+
   <!-- Google Font 'Poppins' -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#d85d27',
+              hover: '#b54716',
+              dark: '#df5734',
+              light: '#fff4ed',
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body>
+<body class="bg-white text-[#111111] font-sans antialiased min-h-screen">
 
   <!-- ================= NAVBAR ================= -->
-  <nav class="navbar">
-    <div class="brand">
-      <span class="house-icon">
-        <i class="fa-solid fa-house"></i>
-        <span class="cutlery">
-          <i class="fa-solid fa-utensils"></i>
+  <nav class="w-full h-[54px] bg-[#f26322] flex items-center justify-between px-6 md:px-20 relative z-40">
+    <a href="../index.html" class="inline-block text-white">
+      <div class="flex items-center gap-2.5">
+        <span class="relative w-[22px] h-[24px] flex items-center justify-center text-white text-xl">
+          <i class="fa-solid fa-house"></i>
+          <span class="absolute left-[6px] top-[7px] text-[8px] text-[#f26322] z-10 flex items-center justify-center">
+            <i class="fa-solid fa-utensils"></i>
+          </span>
         </span>
-      </span>
-      <span class="brand-name">MEAL FINDER.</span>
-    </div>
+        <span class="text-white text-lg font-bold tracking-wide">MEAL FINDER.</span>
+      </div>
+    </a>
 
-    <div class="menu-icon">
+    <div class="text-white text-2xl cursor-pointer hover:opacity-80 transition" id="menuBtn" aria-label="Open navigation menu">
       <i class="fa-solid fa-bars"></i>
     </div>
   </nav>
 
+  <!-- ================= SLIDE-OUT SIDEBAR ================= -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/45 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="sidebar" class="fixed top-0 right-0 w-[270px] max-w-[80vw] h-full bg-white z-50 shadow-2xl translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto py-5">
+    <button id="closeSidebarBtn" class="absolute top-4 right-5 text-2xl text-brand-dark hover:text-brand-hover hover:rotate-90 transition duration-200" aria-label="Close menu">
+      <i class="fa-regular fa-circle-xmark"></i>
+    </button>
+    <div class="px-6 pt-8 pb-3 border-b border-gray-100">
+      <h3 class="text-sm font-bold text-gray-700 uppercase tracking-wider">Categories</h3>
+    </div>
+    <ul id="sidebarCategoryList" class="divide-y divide-gray-100 text-sm">
+      <!-- Dynamically populated categories -->
+    </ul>
+  </aside>
+
   <!-- ================= HERO SECTION ================= -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="search-box">
-        <input type="text" placeholder="Search recipes here ..." />
-        <button class="search-btn" aria-label="Search">
+  <section class="relative h-[400px] bg-cover bg-center flex justify-center items-center" style="background-image: url('./header_image.1dc0f346d407fc577d16.jpg');">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <div class="relative z-10 text-center text-white w-full px-4">
+      <form id="searchForm" class="flex justify-center items-center mb-6">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search recipes here ..." 
+          autocomplete="off" 
+          class="w-64 sm:w-72 h-12 rounded-full px-6 text-sm text-gray-800 placeholder-gray-400 outline-none shadow-md focus:ring-2 focus:ring-[#e85d1b]"
+        />
+        <button type="submit" id="searchBtn" aria-label="Search" class="bg-[#e85d1b] text-white border-2 border-transparent rounded-full ml-2 w-12 h-12 flex items-center justify-center text-base cursor-pointer hover:bg-white hover:text-[#e85d1b] hover:border-[#e85d1b] transition duration-300">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-      </div>
+      </form>
 
-      <h1>What are your favorite cuisines?</h1>
-      <p>PERSONALIZE YOUR EXPERIENCE</p>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-wide mb-3 drop-shadow-md">What are your favorite cuisines?</h1>
+      <p class="text-xs sm:text-sm font-semibold tracking-widest uppercase opacity-95">PERSONALIZE YOUR EXPERIENCE</p>
     </div>
   </section>
 
   <!-- ================= MAIN CONTENT ================= -->
-  <main class="main-wrapper">
+  <main class="max-w-[980px] mx-auto my-9 mb-16 px-4">
 
-    <!-- 1. VEGETARIAN INFO BOX -->
-    <section class="info-card">
-      <h2 class="info-card-title">Vegetarian</h2>
-      <p class="info-card-text">
-        Vegetarianism is the practice of abstaining from the consumption of meat (red meat, poultry, seafood, and the
-        flesh of any other animal), and may also include abstention from by-products of animal slaughter. Vegetarianism
-        may be adopted for various reasons. Many people object to eating meat out of respect for sentient life. Such
-        ethical motivations have been codified under various religious beliefs, as well as animal rights advocacy. Other
-        motivations for vegetarianism are health-related, political, environmental, cultural, aesthetic, economic, or
-        personal preference. There are variations of the diet as well: an ovo-lacto vegetarian diet includes both eggs
-        and
-        dairy products, an ovo-vegetarian diet includes eggs but not dairy products, and a lacto-vegetarian diet
-        includes
-        dairy products but not eggs. A vegan diet excludes all animal products, including eggs and dairy. Some vegans
-        also avoid other animal products such as beeswax, leather or silk clothing, and goose-fat shoe polish.
+    <!-- 1. CATEGORY INFO BOX (DYNAMIC) -->
+    <section class="bg-[#f8f9fa] border-2 border-brand-dark rounded p-6 sm:p-7 mb-8 w-full">
+      <h2 class="text-brand-dark text-xl font-bold mb-3" id="infoCardTitle">Loading Category...</h2>
+      <p class="text-gray-600 text-xs sm:text-sm leading-relaxed" id="infoCardText">
+        Please wait while we fetch category details...
       </p>
     </section>
 
     <!-- 2. SECTION HEADER -->
-    <header class="section-header">
-      <h3 class="section-title">MEALS</h3>
+    <header class="mb-5">
+      <h3 class="text-lg font-bold tracking-wider text-black uppercase relative pb-1 inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-9 after:h-[3px] after:bg-brand-dark">
+        MEALS
+      </h3>
     </header>
 
-    <!-- 3. EXACT 40 CARDS GRID (ALL REAL THEMEALDB IMAGES) -->
-    <div class="cards-grid">
-
-      <!-- Row 1 -->
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./beganbharta.jpej.jpg" alt="Baingan Bharta" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Baingan Bharta</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./zadvgb1699012544.jpg" alt="Beetroot Soup (Borscht)" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Beetroot Soup<br><span class="dish-origin">(Borscht)</span></p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./cabbage soup jpej.jpg" alt="Cabbage Soup (Shchi)" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Cabbage Soup<br><span class="dish-origin">(Shchi)</span></p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./chickpea jpej.jpg" alt="Chickpea Fajitas" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Chickpea Fajitas</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./egg plant jpej.jpg" alt="Crispy Eggplant" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Crispy Eggplant</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <!-- Row 2 -->
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./dal fry jpej.jpg" alt="Dal fry" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Dal fry</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./egg drop soup.jpg" alt="Egg Drop Soup" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Egg Drop Soup</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./eggplant adoba.jpg" alt="Eggplant Adobo" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Eggplant Adobo</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./flamiche.jpg" alt="Flamiche" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Flamiche</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./ful medames.jpg" alt="Ful Medames" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Ful Medames</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <!-- Row 3 -->
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./gigantesplaki.jpg" alt="Gigantes Plaki" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Gigantes Plaki</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./grilled egg plant.jpg" alt="Grilled eggplant with coconut milk" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Grilled eggplant<br>with coconut milk</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./kafteji.jpg" alt="Kafteji" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Kafteji</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./kidney bean.jpg" alt="Kidney Bean Curry" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Kidney Bean Curry</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="koshari.jpg" alt="Koshari" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Koshari</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <!-- Row 4 -->
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="lablebisoup.jpg" alt="Lablabi Soup" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Lablabi Soup</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="matar paneer.jpg" alt="Matar Paneer" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Matar Paneer</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="carrot soup.jpg" alt="Moroccan Carrot Soup" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Moroccan Carrot<br>Soup</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="mashroom.jpg" alt="Mushroom & Chestnut Rotolo" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Mushroom &<br>Chestnut Rotolo</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="potatosalad.jpg" alt="Potato Salad (Olivier Salad)" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Potato Salad<br><span class="dish-origin">(Olivier Salad)</span></p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <!-- Row 5 -->
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="omelelle cake.jpg" alt="Provençal Omelette Cake" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Provençal Omelette<br>Cake</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="./ralaloille.jpg" alt="Ratatouille" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Ratatouille</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="riboli.jpg" alt="Ribollita" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Ribollita</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="roasted eggplant.jpg" alt="Roasted Eggplant With Tahini, Pine Nuts, and Lentils" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Roasted Eggplant<br>With Tahini, Pine<br>Nuts, and Lentils</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="shakshuka.jpg" alt="Shakshuka" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Shakshuka</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <!-- Row 6 -->
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="lentill chili.jpg" alt="Smoky Lentil Chili with Squash" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Smoky Lentil Chili<br>with Squash</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="spanish tortilla.jpg" alt="Spanish Tortilla" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Spanish Tortilla</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="penne.jpg" alt="Spicy Arrabiata Penne" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Spicy Arrabiata<br>Penne</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="polalo salad.jpg" alt="Spicy North African Potato Salad" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Spicy North African<br>Potato Salad</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="cannelloni.jpg" alt="Spinach & Ricotta Cannelloni" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Spinach & Ricotta<br>Cannelloni</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <!-- Row 7 -->
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="squash.jpg" alt="Squash linguine" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Squash linguine</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="clumin yogurt.jpg" alt="Stovetop Eggplant With Harissa, Chickpeas, and Cumin Yogurt" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Stovetop Eggplant<br>With Harissa,<br>Chickpeas, and<br>Cumin Yogurt</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="back beans.jpg" alt="Stuffed Bell Peppers with Quinoa and Black Beans" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Stuffed Bell Peppers<br>with Quinoa and<br>Black Beans</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="summer plastou.jpg" alt="Summer Pistou" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Summer Pistou</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="lentills.jpg" alt="Tahini Lentils" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Tahini Lentils</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <!-- Row 8 -->
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="tamlya.jpg" alt="Tamiya" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Tamiya</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="tortang talong.jpg" alt="Tortang Talong" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Tortang Talong</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="cassrioa.jpg" alt="Vegetarian Casserole" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Vegetarian<br>Casserole</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="vegetarian chilli.jpg" alt="Vegetarian Chilli" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Vegetarian Chilli</p>
-          </div>
-        </div>
-      </a>
-      <a href="./meal-details/index.html">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img src="yaki udon.jpg" alt="Yaki Udon" />
-          </div>
-          <div class="card-content">
-            <p class="dish-name">Yaki Udon</p>
-          </div>
-        </div>
-      </a>
-
-
+    <!-- 3. STATUS / LOADING MESSAGE -->
+    <div id="categoryStatusMsg" class="text-center p-6 text-sm text-gray-600 bg-[#f8f9fa] border border-dashed border-brand-dark rounded my-4">
+      Loading meals...
     </div>
+
+    <!-- 4. DYNAMIC CARDS GRID -->
+    <div id="categoryMealsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 w-full"></div>
+
   </main>
 
+  <!-- JavaScript File -->
+  <script src="category.js"></script>
 </body>
 
 </html>

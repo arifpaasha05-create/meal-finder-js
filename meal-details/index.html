@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meal Finder - Meal Details</title>
+
+  <!-- Google Fonts: Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#d85d27',
+              hover: '#b54716',
+              light: '#fff4ed',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#f2f3f5] text-[#2b2b2b] font-sans antialiased min-h-screen">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="w-full h-[52px] bg-brand flex items-center justify-between px-6 md:px-20 relative z-40">
+    <a href="../../index.html" class="inline-block text-white">
+      <div class="flex items-center gap-2.5">
+        <span class="relative w-[22px] h-[24px] flex items-center justify-center text-white text-lg">
+          <i class="fa-solid fa-house"></i>
+          <span class="absolute left-[6px] top-[7px] text-[7px] text-brand z-10 flex items-center justify-center">
+            <i class="fa-solid fa-utensils"></i>
+          </span>
+        </span>
+        <span class="text-white text-lg font-bold tracking-wide">MealFinder.</span>
+      </div>
+    </a>
+
+    <div class="text-white text-xl cursor-pointer hover:opacity-80 transition" id="menuBtn" aria-label="Open navigation menu">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </nav>
+
+  <!-- ================= SLIDE-OUT SIDEBAR ================= -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/45 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="sidebar" class="fixed top-0 right-0 w-[270px] max-w-[80vw] h-full bg-white z-50 shadow-2xl translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto py-5">
+    <button id="closeSidebarBtn" class="absolute top-4 right-5 text-2xl text-brand hover:text-brand-hover hover:rotate-90 transition duration-200" aria-label="Close menu">
+      <i class="fa-regular fa-circle-xmark"></i>
+    </button>
+    <div class="px-6 pt-8 pb-3 border-b border-gray-100">
+      <h3 class="text-sm font-bold text-gray-700 uppercase tracking-wider">Categories</h3>
+    </div>
+    <ul id="sidebarCategoryList" class="divide-y divide-gray-100 text-sm">
+      <!-- Dynamically populated categories -->
+    </ul>
+  </aside>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative h-[360px] bg-cover bg-center flex justify-center items-center" style="background-image: url('./header_image.1dc0f346d407fc577d16.jpg');">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/55"></div>
+
+    <div class="relative z-10 text-center text-white w-full px-4">
+      <form id="searchForm" class="flex justify-center items-center mb-6">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search recipes here ..." 
+          autocomplete="off" 
+          class="w-64 sm:w-72 h-11 rounded-full px-5 text-sm text-gray-800 placeholder-gray-400 outline-none shadow-md focus:ring-2 focus:ring-brand"
+        />
+        <button type="submit" id="searchBtn" aria-label="Search" class="bg-brand text-white border-2 border-transparent rounded-full ml-2 w-11 h-11 flex items-center justify-center text-sm cursor-pointer hover:bg-white hover:text-brand hover:border-brand transition duration-300">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-wide mb-2 drop-shadow-md">What are your favorite cuisines?</h1>
+      <p class="text-xs sm:text-sm font-semibold tracking-widest uppercase opacity-95">PERSONALIZE YOUR EXPERIENCE</p>
+    </div>
+  </section>
+
+  <!-- ================= MAIN MEAL DETAILS ================= -->
+  <div class="max-w-[880px] mx-auto my-9 mb-12 px-4">
+
+    <!-- Top Orange Breadcrumb Bar -->
+    <header class="bg-brand text-white px-4 py-2.5 flex items-center gap-2.5 text-xs font-bold rounded-sm mb-6">
+      <a href="../../index.html" class="inline-flex items-center text-white hover:opacity-80 transition" aria-label="Go to homepage">
+        <i class="fa-solid fa-house text-sm"></i>
+      </a>
+      <span class="font-extrabold opacity-90">»</span>
+      <span class="uppercase tracking-wider" id="breadcrumbName">LOADING RECIPE...</span>
+    </header>
+
+    <!-- Page Heading -->
+    <div class="mb-6">
+      <h1 class="text-base font-extrabold tracking-widest text-[#1a1a1a] uppercase">MEAL DETAILS</h1>
+      <div class="w-12 h-1 bg-brand mt-1.5 rounded-sm"></div>
+    </div>
+
+    <!-- Status message for loading/errors -->
+    <div id="mealStatusMsg" class="hidden text-center p-6 text-sm text-gray-600 bg-white border border-dashed border-brand rounded my-4"></div>
+
+    <!-- Main Recipe Card -->
+    <main class="bg-white rounded p-6 sm:p-8 shadow-sm mb-8" id="mealCardContainer">
+
+      <!-- 2-Column Header Grid (Image + Info) -->
+      <section class="grid grid-cols-1 md:grid-cols-[340px_1fr] gap-7 mb-7">
+        
+        <!-- Left: Meal Image -->
+        <div class="w-full">
+          <img 
+            id="mealImage" 
+            src="" 
+            alt="Meal Image" 
+            class="w-full h-full max-h-[290px] object-cover rounded-sm block"
+          />
+        </div>
+
+        <!-- Right: Meal Information -->
+        <div class="flex flex-col">
+          <h2 class="text-xl font-bold text-brand mb-1.5" id="mealTitle">Loading...</h2>
+          <div class="h-px bg-[#f5ab8c] w-full mb-3.5"></div>
+
+          <div class="flex items-center gap-1.5 text-xs mb-2">
+            <span class="font-bold text-[#1a1a1a]">CATEGORY:</span>
+            <span class="text-gray-500 font-medium tracking-wide uppercase" id="mealCategory"></span>
+          </div>
+
+          <div class="flex items-center gap-1.5 text-xs mb-2" id="mealSourceRow">
+            <span class="font-bold text-[#1a1a1a]">Source:</span>
+            <a id="mealSourceLink" href="#" target="_blank" rel="noopener noreferrer" class="text-gray-600 font-normal hover:underline truncate max-w-[280px]"></a>
+          </div>
+
+          <div class="flex items-center gap-1.5 text-xs mb-3 flex-wrap" id="mealTagsRow">
+            <span class="font-bold text-[#1a1a1a]">Tags:</span>
+            <div id="mealTagsContainer" class="inline-flex gap-1.5 flex-wrap"></div>
+          </div>
+
+          <!-- Dynamic Ingredients Box -->
+          <div class="bg-brand rounded p-3.5 sm:p-4 text-white mt-auto">
+            <h3 class="text-xs font-bold mb-2.5">Ingredients</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5 text-xs" id="ingredientsGrid">
+              <!-- Dynamically populated ingredients -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Measure Section -->
+      <section class="mb-6" id="measureSection">
+        <h4 class="text-sm font-bold text-[#1a1a1a] mb-2">Measure:</h4>
+        <div class="border border-gray-200 rounded p-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-800" id="measureCard">
+          <!-- Dynamically populated measures (2 columns) -->
+        </div>
+      </section>
+
+      <!-- Instructions Section -->
+      <section class="mb-2" id="instructionsSection">
+        <h4 class="text-sm font-bold text-[#1a1a1a] mb-2">Instructions:</h4>
+        <ul class="space-y-2 text-xs text-gray-700 leading-relaxed" id="instructionsList">
+          <!-- Dynamically populated instruction steps -->
+        </ul>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- ================= CATEGORIES SECTION (BOTTOM) ================= -->
+  <section class="bg-[#f5f5f5] py-10 pb-16 px-4 border-t border-gray-200">
+    <div class="max-w-[880px] mx-auto">
+      <div class="mb-6">
+        <h2 class="text-base font-extrabold tracking-widest text-[#1a1a1a] uppercase">CATEGORIES</h2>
+        <div class="w-12 h-1 bg-brand mt-1.5 rounded-sm"></div>
+      </div>
+
+      <!-- Bottom Category Cards Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4" id="bottomCategoryGrid">
+        <!-- Dynamically populated categories -->
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript File -->
+  <script src="./script.js"></script>
+</body>
+
+</html>
