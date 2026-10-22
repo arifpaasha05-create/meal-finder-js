@@ -19,9 +19,7 @@ const sidebarOverlay = document.getElementById('sidebarOverlay');
 const closeSidebarBtn = document.getElementById('closeSidebarBtn');
 const sidebarCategoryList = document.getElementById('sidebarCategoryList');
 
-// ==========================================
-// 2. DEFAULT CATEGORIES (LOADS INSTANTLY WITH 0 WAIT!)
-// ==========================================
+
 const defaultCategories = [
     { strCategory: "Beef", strCategoryThumb: "https://www.themealdb.com/images/category/beef.png" },
     { strCategory: "Chicken", strCategoryThumb: "https://www.themealdb.com/images/category/chicken.png" },
@@ -39,9 +37,7 @@ const defaultCategories = [
     { strCategory: "Goat", strCategoryThumb: "https://www.themealdb.com/images/category/goat.png" }
 ];
 
-// ==========================================
-// 3. HELPER FUNCTIONS (STORE IN LOCALSTORAGE)
-// ==========================================
+
 function selectCategory(name) {
     localStorage.setItem('selectedCategory', name);
 }
@@ -84,9 +80,7 @@ function displayCategories(categories) {
     `).join('');
 }
 
-// ==========================================
-// 4. FETCH AND DISPLAY ALL CATEGORIES
-// ==========================================
+
 async function fetchCategories() {
     // 1. Show default categories IMMEDIATELY (0 seconds wait, never stuck on loading!)
     displayCategories(defaultCategories);
@@ -99,9 +93,7 @@ async function fetchCategories() {
     }
 }
 
-// ==========================================
-// 5. SEARCH MEALS FUNCTION
-// ==========================================
+
 async function searchMeals(foodName) {
     const query = foodName.trim();
     if (!query) {
@@ -140,9 +132,7 @@ async function searchMeals(foodName) {
     `).join('');
 }
 
-// ==========================================
-// 6. SIDEBAR OPEN / CLOSE
-// ==========================================
+
 function openSidebar() {
     sidebar.classList.remove('translate-x-full');
     sidebar.classList.add('translate-x-0');
@@ -161,9 +151,6 @@ menuBtn.addEventListener('click', openSidebar);
 closeSidebarBtn.addEventListener('click', closeSidebar);
 sidebarOverlay.addEventListener('click', closeSidebar);
 
-// ==========================================
-// 7. INITIAL RUN
-// ==========================================
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     searchMeals(searchInput.value);
@@ -171,7 +158,7 @@ searchForm.addEventListener('submit', (e) => {
 
 fetchCategories();
 
-// If another page sent a search query via localStorage
+
 const savedQuery = localStorage.getItem('searchQuery');
 if (savedQuery) {
     searchInput.value = savedQuery;

@@ -26,9 +26,7 @@ const sidebarOverlay = document.getElementById('sidebarOverlay');
 const closeSidebarBtn = document.getElementById('closeSidebarBtn');
 const sidebarCategoryList = document.getElementById('sidebarCategoryList');
 
-// ==========================================
-// 2. READ MEAL ID FROM LOCALSTORAGE
-// ==========================================
+
 const mealId = localStorage.getItem('selectedMealId') || '52772';
 
 function selectCategory(categoryName) {
@@ -57,9 +55,7 @@ function renderBottomCategories(categories) {
     `).join('');
 }
 
-// ==========================================
-// 3. FAST LOAD (USE CACHED CATEGORIES + FETCH RECIPE)
-// ==========================================
+
 async function loadMealDetails() {
     // 1. Show bottom categories instantly from localStorage if cached
     const savedCategories = localStorage.getItem('cachedCategories');
@@ -144,9 +140,7 @@ async function loadMealDetails() {
     }
 }
 
-// ==========================================
-// 4. SEARCH (SAVE TO LOCALSTORAGE & GO HOME)
-// ==========================================
+
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const query = searchInput.value.trim();
@@ -158,9 +152,7 @@ searchForm.addEventListener('submit', (e) => {
     window.location.href = '../../index.html';
 });
 
-// ==========================================
-// 5. SIDEBAR CONTROLS
-// ==========================================
+
 function openSidebar() {
     sidebar.classList.remove('translate-x-full');
     sidebar.classList.add('translate-x-0');

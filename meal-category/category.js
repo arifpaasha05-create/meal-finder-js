@@ -18,9 +18,7 @@ const sidebarOverlay = document.getElementById('sidebarOverlay');
 const closeSidebarBtn = document.getElementById('closeSidebarBtn');
 const sidebarCategoryList = document.getElementById('sidebarCategoryList');
 
-// ==========================================
-// 2. READ SELECTED CATEGORY FROM LOCALSTORAGE
-// ==========================================
+
 const currentCategory = localStorage.getItem('selectedCategory') || 'Chicken';
 infoCardTitle.textContent = currentCategory;
 document.title = `Meal Finder - ${currentCategory}`;
@@ -53,9 +51,7 @@ function showCategoryDetails(categories) {
     `).join('');
 }
 
-// ==========================================
-// 3. FAST LOAD (USE LOCALSTORAGE CACHE + FETCH MEALS)
-// ==========================================
+
 async function loadCategoryPage() {
     // 1. Check if categories are already in localStorage -> show description instantly!
     const savedCategories = localStorage.getItem('cachedCategories');
@@ -91,9 +87,7 @@ async function loadCategoryPage() {
     }
 }
 
-// ==========================================
-// 4. SEARCH (SAVE TO LOCALSTORAGE & GO TO HOMEPAGE)
-// ==========================================
+
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const query = searchInput.value.trim();
